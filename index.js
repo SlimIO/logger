@@ -3,6 +3,7 @@ const { once } = require("events");
 
 // Require Third-party Dependencies
 const SonicBoom = require("sonic-boom");
+const flatstr = require("flatstr");
 
 // Require Internal Dependencies
 const { format } = require("./src/utils");
@@ -57,11 +58,7 @@ class Logger {
         }
         else {
             const date = format(void 0, this[SYM_LOCAL]);
-            const msgToWrite = `${this[SYM_TITLE]} ${date} - ${msg}\n`;
-            // eslint-disable-next-line
-            msgToWrite | 0;
-
-            this[SYM_FD].write(msgToWrite);
+            this[SYM_FD].write(flatstr(`${this[SYM_TITLE]} ${date} - ${msg}\n`));
         }
     }
 
@@ -75,5 +72,6 @@ class Logger {
         await once(this[SYM_FD], "finish");
     }
 }
+Object.preventExtensions(Logger);
 
 module.exports = Logger;

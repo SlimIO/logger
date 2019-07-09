@@ -43,7 +43,12 @@ Write a new line in the write stream.
 Close and flush the stream.
 
 ## Dependencies
-This project have no dependencies.
+
+|Name|Refactoring|Security Risk|Usage|
+|---|---|---|---|
+|[flatstr](https://github.com/davidmarkclements/flatstr#readme)|Minor|Low|TBC|
+|[sonic-boom](https://github.com/mcollina/sonic-boom#readme)|Minor|High|TBC|
+
 
 ## License
 MIT
