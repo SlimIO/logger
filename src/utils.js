@@ -1,13 +1,15 @@
+"use strict";
+
 /**
  * @namespace Utils
  */
 
 /**
- * @func format
+ * @function format
  * @memberof Utils#
- * @param {String | Date} [date] date
- * @param {String} [local="en-GB"] local timezone
- * @returns {String}
+ * @param {string | Date} [date] date
+ * @param {string} [local="en-GB"] local timezone
+ * @returns {string}
  */
 function format(date = new Date(), local = "en-GB") {
     // eslint-disable-next-line
