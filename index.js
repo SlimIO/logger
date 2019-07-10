@@ -1,3 +1,5 @@
+"use strict";
+
 // Require Node.js Dependencies
 const { once } = require("events");
 
@@ -13,17 +15,14 @@ const SYM_FD = Symbol("symFd");
 const SYM_TITLE = Symbol("symTitle");
 const SYM_LOCAL = Symbol("symLocal");
 
-/**
- * @class Logger
- */
 class Logger {
     /**
-     * @constructor
+     * @class Logger
      * @memberof Logger#
      * @param {string | number} fd filedescriptor
-     * @param {Object} [options] options
-     * @param {String} [options.title] logger title
-     * @param {String} [options.local="en-GB"] Date local (timezone).
+     * @param {object} [options] options
+     * @param {string} [options.title] logger title
+     * @param {string} [options.local="en-GB"] Date local (timezone).
      *
      * @throws {TypeError}
      */
@@ -46,10 +45,10 @@ class Logger {
     }
 
     /**
-     * @method writeLine
-     * @desc Write a new line in the logger
+     * @function writeLine
+     * @description Write a new line in the logger
      * @memberof Logger#
-     * @param {!String} [msg] message
+     * @param {!string} [msg] message
      * @returns {void}
      */
     writeLine(msg = "") {
@@ -63,7 +62,7 @@ class Logger {
     }
 
     /**
-     * @method close
+     * @function close
      * @memberof Logger#
      * @returns {void}
      */
