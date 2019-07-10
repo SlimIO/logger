@@ -23,7 +23,7 @@ $ yarn add @slimio/logger
 const log = new Logger(void 0, {
     title: "MY-LOG"
 });
-for (let id = 0; id < 150; ++id) {
+for (let id = 0; id < 10; ++id) {
     log.writeLine("hello world!");
 }
 
@@ -36,8 +36,29 @@ await log.close();
 ### constructor(fd?: string | number, options?: Logger.ConstructorOptions)
 Create a new Logger. The default value of `fd` is `process.stdout.fd`.
 
-### writeLine(msg: string): void
-Write a new line in the write stream.
+Options is described by the following TypeScript interface:
+```ts
+interface ConstructorOptions {
+    title?: string;
+    local?: string;
+}
+```
+
+### writeLine(msg?: string): void
+Write a new line in the write stream. If the **msg** is undefined or equal to Empty String, then we write `\n` in the WriteStream.
+
+```js
+log.writeLine("hello");
+log.writeLine(void 0);
+log.writeLine("bye bye !");
+```
+
+It will produce the following stdout
+```
+[my-log] Jul 10, 2019, 3:24:25 PM - hello
+
+[my-log] Jul 10, 2019, 3:24:25 PM - bye bye !
+```
 
 ### close(): Promise< void >
 Close and flush the stream.

@@ -37,7 +37,7 @@ class Logger {
 
         Object.defineProperty(this, SYM_LOCAL, { value: local });
         Object.defineProperty(this, SYM_TITLE, {
-            value: title === "" ? title : `[${title}]`
+            value: title === "" ? title : `[${title}] `
         });
         Object.defineProperty(this, SYM_FD, {
             value: new SonicBoom(fd)
@@ -57,7 +57,7 @@ class Logger {
         }
         else {
             const date = format(void 0, this[SYM_LOCAL]);
-            this[SYM_FD].write(flatstr(`${this[SYM_TITLE]} ${date} - ${msg}\n`));
+            this[SYM_FD].write(flatstr(`${this[SYM_TITLE]}${date} - ${msg}\n`));
         }
     }
 

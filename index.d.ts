@@ -7,7 +7,7 @@ declare namespace Logger {
 
 declare class Logger {
     constructor(fd?: string | number, options?: Logger.ConstructorOptions);
-    writeLine(msg: string): void;
+    writeLine(msg?: string): void;
     close(): Promise<void>;
 }
 
