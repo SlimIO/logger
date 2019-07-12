@@ -6,6 +6,8 @@ declare namespace Logger {
 }
 
 declare class Logger {
+    public isStdout: boolean;
+
     constructor(fd?: string | number, options?: Logger.ConstructorOptions);
     writeLine(msg?: string): void;
     close(): Promise<void>;

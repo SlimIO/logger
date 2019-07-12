@@ -27,7 +27,7 @@ class Logger {
      *
      * @throws {TypeError}
      */
-    constructor(fd = process.stdout.fd, options = Object.create(null)) {
+    constructor(fd, options = Object.create(null)) {
         const { title = "", local = "en-GB" } = options;
         if (typeof title !== "string") {
             throw new TypeError("title must be typeof string");
@@ -36,14 +36,15 @@ class Logger {
             throw new TypeError("local must be typeof string");
         }
 
+        this.isStdout = typeof fd === "undefined" || fd === null;
         Object.defineProperty(this, SYM_LOCAL, { value: local });
-        Object.defineProperty(this, SYM_FD, { value: new SonicBoom(fd) });
+        Object.defineProperty(this, SYM_FD, { value: new SonicBoom(this.isStdout ? process.stdout.fd : fd) });
 
         if (title === "") {
             Object.defineProperty(this, SYM_TITLE, { value: "" });
         }
         else {
-            const textValue = process.stdout.isTTY ? `[${cyan().bold(title)}] ` : `[${title}] `;
+            const textValue = this.isStdout ? `[${cyan().bold(title)}] ` : `[${title}] `;
             Object.defineProperty(this, SYM_TITLE, {
                 value: textValue
             });
@@ -62,9 +63,8 @@ class Logger {
             this[SYM_FD].write("\n");
         }
         else {
-            const isTTY = process.stdout.isTTY;
             const date = format(void 0, this[SYM_LOCAL]);
-            this[SYM_FD].write(flatstr(`${this[SYM_TITLE]}${isTTY ? grey().bold(date) : date} - ${msg}\n`));
+            this[SYM_FD].write(flatstr(`${this[SYM_TITLE]}${this.isStdout ? grey().bold(date) : date} - ${msg}\n`));
         }
     }
 
