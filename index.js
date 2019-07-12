@@ -6,6 +6,7 @@ const { once } = require("events");
 // Require Third-party Dependencies
 const SonicBoom = require("sonic-boom");
 const flatstr = require("flatstr");
+const { cyan, grey } = require("kleur");
 
 // Require Internal Dependencies
 const { format } = require("./src/utils");
@@ -36,12 +37,17 @@ class Logger {
         }
 
         Object.defineProperty(this, SYM_LOCAL, { value: local });
-        Object.defineProperty(this, SYM_TITLE, {
-            value: title === "" ? title : `[${title}] `
-        });
-        Object.defineProperty(this, SYM_FD, {
-            value: new SonicBoom(fd)
-        });
+        Object.defineProperty(this, SYM_FD, { value: new SonicBoom(fd) });
+
+        if (title === "") {
+            Object.defineProperty(this, SYM_TITLE, { value: "" });
+        }
+        else {
+            const textValue = process.stdout.isTTY ? `[${cyan().bold(title)}] ` : `[${title}] `;
+            Object.defineProperty(this, SYM_TITLE, {
+                value: textValue
+            });
+        }
     }
 
     /**
@@ -56,8 +62,9 @@ class Logger {
             this[SYM_FD].write("\n");
         }
         else {
+            const isTTY = process.stdout.isTTY;
             const date = format(void 0, this[SYM_LOCAL]);
-            this[SYM_FD].write(flatstr(`${this[SYM_TITLE]}${date} - ${msg}\n`));
+            this[SYM_FD].write(flatstr(`${this[SYM_TITLE]}${isTTY ? grey().bold(date) : date} - ${msg}\n`));
         }
     }
 
