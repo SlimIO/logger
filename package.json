@@ -21,6 +21,12 @@
         "sonic",
         "low-overhead"
     ],
+    "files": [
+        "index.js",
+        "index.d.ts",
+        "slimio.toml",
+        "src"
+    ],
     "author": "SlimIO",
     "license": "MIT",
     "bugs": {
