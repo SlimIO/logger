@@ -72,9 +72,8 @@ Close and flush the stream.
 
 |Name|Refactoring|Security Risk|Usage|
 |---|---|---|---|
-|[flatstr](https://github.com/davidmarkclements/flatstr#readme)|Minor|Low|TBC|
-|[sonic-boom](https://github.com/mcollina/sonic-boom#readme)|Minor|High|TBC|
-
+|[flatstr](https://github.com/davidmarkclements/flatstr#readme)|Minor|Low|Flattens the underlying C structures of a concatenated JavaScript string|
+|[sonic-boom](https://github.com/mcollina/sonic-boom#readme)|Minor|High|Extremely fast utf8-only stream implementation to write to files and file descriptors.|
 
 ## License
 MIT
