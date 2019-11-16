@@ -5,7 +5,8 @@
 ![dep](https://img.shields.io/david/SlimIO/logger)
 ![size](https://img.shields.io/github/languages/code-size/SlimIO/logger)
 [![Known Vulnerabilities](https://snyk.io//test/github/SlimIO/logger/badge.svg?targetFile=package.json)](https://snyk.io//test/github/SlimIO/logger?targetFile=package.json)
-[![Build Status](https://travis-ci.com/SlimIO/logger.svg?branch=master)](https://travis-ci.com/SlimIO/logger) [![Greenkeeper badge](https://badges.greenkeeper.io/SlimIO/logger.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.com/SlimIO/logger.svg?branch=master)](https://travis-ci.com/SlimIO/logger)
+[![Greenkeeper badge](https://badges.greenkeeper.io/SlimIO/logger.svg)](https://greenkeeper.io/)
 
 SlimIO Sonic Logger. Very simple logger designed to be used in SlimIO. This package is inspired by pino logger.
 
