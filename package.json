@@ -35,7 +35,7 @@
     "dependencies": {
         "flatstr": "^1.0.12",
         "kleur": "^3.0.3",
-        "sonic-boom": "^0.7.6"
+        "sonic-boom": "^1.0.1"
     },
     "devDependencies": {
         "@commitlint/cli": "^8.2.0",
