@@ -38,7 +38,7 @@ class Logger {
 
         this.isStdout = typeof fd === "undefined" || fd === null;
         Object.defineProperty(this, SYM_LOCAL, { value: local });
-        Object.defineProperty(this, SYM_FD, { value: new SonicBoom(this.isStdout ? { fd: process.stdout.fd } : fd) });
+        Object.defineProperty(this, SYM_FD, { value: new SonicBoom(this.isStdout ? { fd: process.stdout.fd } : { dest: fd }) });
 
         if (title === "") {
             Object.defineProperty(this, SYM_TITLE, { value: "" });
