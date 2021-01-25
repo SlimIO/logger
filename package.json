@@ -34,7 +34,7 @@
     "homepage": "https://github.com/SlimIO/logger#readme",
     "dependencies": {
         "flatstr": "^1.0.12",
-        "kleur": "^3.0.3",
+        "kleur": "^4.1.4",
         "sonic-boom": "^1.0.1"
     },
     "devDependencies": {
